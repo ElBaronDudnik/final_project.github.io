@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>System for testing knowledge</title>
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://img.icons8.com/dusk/64/000000/time-span.png">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700|Kelly+Slab|Russo+One|Ubuntu+Condensed&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    
+</head>
+
+<body>
+	<div class="preloader">
+		<div class="container-clock">
+		  <div class="clock">
+		    <div class="hour-arrow arrow"></div>
+		    <div class="min-arrow arrow"></div>
+		  </div>
+		</div>
+	</div>
+    
+    <header>
+      <div class="header_container dark">
+          <div class="header_slider">
+            <div class="top-menu">
+                <div class="logo"><a href="index.html"><i class="material-icons">access_time</i></a></div>
+                <input id="stick" type="checkbox" hidden>
+                <label class="burg-container" for="stick">
+                  <div class="stick"></div>
+                </label>   
+                <ul class="menu">
+                  <li><a href="index.html" class="active">Главная</a></li>
+                  <li><a href="about_us.html">О компании</a></li>
+                  <li><a href="choose_test.html">Выбор теста</a>
+                    <ul class="submenu">
+                        <li><a href="choose_test.html?category=general">Общие знания</a></li>
+                        <li><a href="choose_test.html?category=it">Компьютерные технологии</a>
+                            <ul class="submenu">
+                                <li><a href="choose_test.html?category=it&direction=html">HTML</a></li>
+                                <li><a href="choose_test.html?category=it&direction=css">CSS</a></li>
+                                <li><a href="choose_test.html?category=it&direction=js">JS</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="choose_test.html?category=english">Английский язык</a></li>
+                        <li><a href="choose_test.html?category=math">Математиские задачки</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="contacts.html">Контакты</a></li>
+                  <li class="user_information guest"><a href="#"><i class="material-icons">person_add</i></a>
+                    <ul class="submenu">
+                      <li onclick="buttonClick('auth')"><a href="#">Войти<i class="material-icons">group</i></a></li>
+                      <li onclick="buttonClick('reg')"><a href="#">Зарегистрироваться<i class="material-icons">group_add</i></a></li>
+                    </ul>
+                  </li>
+                  <li class="user_information auth"><a href="#"><i class="material-icons">account_circle</i></a>
+                    <ul class="submenu">
+                      <li><a href="user_page.html">Моя страница<i class="material-icons">pageview</i></a></li>
+                      <li><a href="#" class="logOut">Выйти<i class="material-icons">exit_to_app</i></a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <div class="search">
+                  <input type="text" id="field" placeholder="Поиск">
+                  <input type="button" id="close" title="Отменить поиск" hidden>
+                  <label for="close"><i class="material-icons">close</i></label>
+                  <input type="submit" id="search" title="Начать поиск" value="" hidden>
+                  <label for="search"><i class="material-icons">search</i></label>
+                </div>
+                <div class="search-result hidden"></div>
+            </div>
+            <div class="text-container">
+              <h1>Система<br/> тестирования<br/> знаний</h1>
+              <button class="authorization" onclick="buttonClick('auth')">Войти</button>
+            </div>
+            <div class="background-img slider_image">
+                <img src="img/slider1_new.jpg" alt="background with robot" border="0" class="parallax">
+            </div> 
+            <div class="background-img slider_image hidden-img">
+                <img src="img/slider2_new.jpg" alt="sand clock" border="0" class="parallax">
+            </div> 
+            <div class="background-img slider_image hidden-img">
+                <img src="img/slider3_new.jpg" alt="mobile phone" border="0" class="parallax">
+            </div> 
+            <div class="background-img slider_image hidden-img">
+                <img src="img/slider4_new.jpg" alt="book" border="0" class="parallax">
+            </div> 
+
+        </div>
+        <nav class="controls-arrows">
+         <div class="prev"></div>
+         <div class="next"></div>
+        </nav>
+        <ul class="controls-buttons">
+          <li><span class="diamond selected"></span></li>
+          <li><span class="diamond"></span></li>
+          <li><span class="diamond"></span></li>
+          <li><span class="diamond"></span></li>
+        </ul>
+      
+    </div>
+    
+        
+    </header>
+    <div class="validation-form_container hidden">
+      <div class="modal-win">
+        <input type="radio" id="tab_auth" name="tabs" class="tabs" checked hidden>
+        <label for="tab_auth" class="tab active">Авторизация</label>
+        <input type="radio" id="tab_reg" name="tabs" class="tabs" hidden>
+        <label for="tab_reg" class="tab">Регистрация</label>
+        <button class="tab tab_close"><i class="fas fa-times-circle"></i></button>
+        <form action="#" class="tab-form auth is-valid">
+            <input  type="email" 
+                    data-attr="email" 
+                    id="input_email" 
+                    placeholder="Введите Email" 
+                    pattern="^[\w]{2,}@[A-Za-z]{2,}.[A-Za-z]{2,}" 
+                    maxlength="40" 
+                    required>
+            <div class="error"></div>
+            <input  type="password" 
+                    data-attr="password" 
+                    id="input_pass" 
+                    placeholder="Введите пароль" 
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$" 
+                    maxlength="30" 
+                    minlength="8" 
+                    required>
+            <div class="error"></div>
+            <button href="#" type="submit">Войти</button>
+            <!--<ul>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fab fa-google"></i></a></li>
+          </ul>
+          <a href="#" class="forgot">Я забыл email или пароль</a>-->
+        </form>
+        <form action="#" class="tab-form reg is-valid">
+          <input type="text" 
+                 data-attr="name" 
+                 id="input_name" 
+                 placeholder="Введите имя" 
+                 pattern="[\w]{2,}" 
+                 maxlength="30" 
+                 required>
+          <div class="error"></div>
+          <input  type="email" 
+                  data-attr="email" 
+                  id="input_email_reg" 
+                  placeholder="Введите Email" 
+                  pattern="^[\w]{2,}@[A-Za-z]{2,}.[A-Za-z]{2,}" 
+                  required>
+          <div class="error"></div>
+          <input type="password" 
+                 data-attr="password" 
+                 id="input_pass_reg" 
+                 placeholder="Введите Пароль" 
+                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$" 
+                 maxlength="30" 
+                 minlength="8" 
+                 required>
+          <div class="error"></div>
+          <input type="password" 
+                 id="input_pass_confirm" 
+                 placeholder="Подтверждение пароля" 
+                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$" 
+                 maxlength="30" 
+                 minlength="8" 
+                 required>
+          <div class="error"></div>
+          <button href="#" type="submit">Регистрация</button>
+        </form>
+      </div>
+    </div>
+
+    <section class="categories">
+      <ul>
+        <li>Общие знания</li>
+        <li>Английский</li>
+        <li>Компьютерные технологии</li>
+        <li>Математические задачки</li>
+      </ul>
+    </section>
+
+    <section class="tests">
+      <div class="flex-container">
+          
+      </div>
+      <div class="tests-pagination flex-container">
+        
+      </div>
+    </section>
+
+
+    <span class="contact_us"><i class="material-icons">mail_outline</i></span>
+    <section class="feedback">
+        <form action="#" class="form-feedback is-valid">
+            <h2>Напиши нам</h2><span class="exit"><i class="material-icons">clear</i></span>
+            <div class="flex-container">
+                <div>
+                  <input id="name" type="text" placeholder="Имя" pattern="[\w]{2,}" maxlength="30" required>
+                  <div class="error"></div>
+                </div>
+                <div>
+                  <input type="tel" placeholder="Телефон" pattern="^\+380\d{9}$" maxlength="13" minlength="10" required>
+                  <div class="error"></div>
+                </div>
+                <div>
+                  <input type="email" placeholder="Email" pattern="^[\w]{2,}@[A-Za-z]{2,}.[A-Za-z]{2,}" maxlength="40" required>
+                  <div class="error"></div>
+                </div> 
+                <div>
+                  <input list="reason" placeholder="Причина связи" required>
+                  <div class="error"></div>
+                  <datalist id="reason">
+                    <option value="collaboration">Сотрудничество</option>
+                    <option value="errors">Ошибки на сайте</option>
+                    <option value="other">Другое</option>
+                   </datalist>  
+                </div>
+                <div class="textarea">
+                  <textarea rows="5" cols="52" placeholder="Оставьте ваше сообщение" maxlength="500" minlength="10" required></textarea>
+                  <div class="error"></div>
+                </div>
+                <div class="button_blue">
+                  <button type="submit">Готово</button>
+               </div>
+            </div>
+        </form>          
+     </section>
+
+     <footer>
+      <div class="flex-container">
+        <div class="footer-rights">
+          <p>Dudnyk developing, Inc.</p>
+          <p>@2019.All rights resereved.</p>
+        </div>
+        <div class="footer-contacts">
+              <input type="checkbox" id="contacts" hidden>
+              <label for="contacts"><h4>Contacts<i class="fas fa-angle-down"></i><i class="fas fa-angle-up"></i></h4></label>
+              <ul>
+                <li> <i class="fas fa-mobile-alt"></i>+380632090340</li>
+                <li><i class="fas fa-envelope"></i>elenkondrattseva@gmail.com</li>
+                <li><i class="fas fa-map-marker-alt"></i>Kiev region, pgt. Kotsubinskoe</li>
+              </ul>
+          </div>
+        <div class="footer-menu_n_social">
+          <div class="accordeon flex-container">
+              <input type="checkbox" id="social" hidden>
+              <label for ="social"><h4>Social<i class="fas fa-angle-down"></i><i class="fas fa-angle-up"></i></h4></label>
+              <ul>
+                <li><a href="about_us.html" target="_blank">About</a></li>
+                <li><a href="choose_test.html" target="_blank">Choose the test</a></li>
+                <li><a href="contacts.html" target="_blank">Contacts</a></li>
+              </ul>
+              <ul>
+                <li><a href="https://www.instagram.com/dudnyk.elena/" target="_blank"><i class="fab fa-instagram"></i>Instagram</a></li>
+                <li><a href="https://www.facebook.com/helen.red.10" target="_blank"><i class="fab fa-facebook"></i>Facebook</a></li>
+                <li><a href="https://www.linkedin.com/in/elena-dudnyk-1b264a11b/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a></li>
+              </ul>
+          </div>   
+        </div>
+      </div>
+    </footer>
+
+  
+    <script src="scripts/preloader.js"></script>
+    <script src="scripts/slider.js"></script>
+    <script src="scripts/parallax.js"></script>
+    <script src="scripts/validation-form.js"></script>
+    <script src="scripts/pagination.js" type="module"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/contacts.js"></script>
+    <script src="scripts/ajax.js"></script>
+    
+</body>
+</html>

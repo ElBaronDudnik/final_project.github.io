@@ -1,0 +1,147 @@
+=size($x, $y)
+  width: $x
+  height: $y
+=flex($x, $y)
+  display: flex
+  justify-content: $x
+  align-items: $y
+.flex-container
+  +flex(space-around, center) 
+
+
+header.test_page
+  background: $light-blue
+  +flex(space-between, center)
+  padding: 0 80px
+  position: fixed
+  height: 44px
+  z-index: 10
+  width: 100%
+  .logo i.material-icons
+    font-size: 40px
+    color: $dark-blue
+main
+  min-height: 100vh
+  background-color: #f9f9f9
+  background-image: linear-gradient(#4C596C, transparent 1px)
+  background-size: 1.5em 1.5em  
+  box-shadow: 1px 1px 2px rgba(0,0,0,.2), -1px -1px 2px rgba(0,0,0,.2)
+  &:before 
+    content: ""
+    display: inline-block  
+    height: 100%
+    width: 4px
+    position: fixed
+    border-left: 4px double #F54318
+    left: 40px
+    top: 44px
+
+.container
+  +flex(space-around, flex-start)
+  padding-top: 40px
+  flex-wrap: wrap
+
+aside
+  flex: 1
+  margin: 5px 20px
+  margin-left: 80px
+  ul
+    list-style-type: none
+    flex-wrap: wrap
+    justify-content: center
+    padding-left: 0
+    li a
+      background: #fff
+      overflow: hidden
+      text-overflow: ellipsis
+      box-shadow: 1px 1px 1px 1px rgba(21,20,21,0.5)
+      height: 65px
+      margin-bottom: 10px
+      text-align: center
+      cursor: pointer
+      transition: 1s ease
+      +flex(center, center)
+      
+      &:hover, &.checked
+        background: rgba(81, 80, 81, 0.8)
+        color: #fff
+    input:checked+label
+      background: rgba(81, 80, 81, 0.8)
+      color: #fff
+article
+  flex: 3
+  width: auto
+  ol
+    list-style-type: lower-latin
+
+.quet
+  overflow: hidden
+  opacity: 1
+  background: #fff
+  margin: 20px 20px 0
+  box-shadow: 4px 4px 9px 2px rgba(81,80,81,1)
+  transition: all 0.5s ease 
+  display: flex
+  +size(85%, auto)
+  flex-wrap: wrap
+  position: relative
+  .description
+    width: 100%
+    background: rgba(255,255,255,.7)
+    border-top: 1px solid $dark-grey
+    margin: 0
+    padding: 20px 40px
+    color: $dark-grey
+  &.right
+    background-color: $green-light
+  &.wrong
+    background-color: $red-light
+  div.question_place
+    flex: 1
+    margin: 20px 30px
+    max-width: 70%
+  div.img_place
+    width: 250px
+    display: flex
+    align-items: center
+    margin-right: 20px
+    img
+      max-width: 250px
+      width: 250px
+  li.right
+    background-color: $green-dark
+  li.wrong
+    background-color: $red-dark
+
+      
+.hidden 
+  opacity: 0
+  visibility: hidden  
+  height: 0
+  display: block 
+  padding: 0 40px
+  margin: 0 20px
+
+
+#finish_test
+  align-self: center
+  background: none
+  font-size: 20px
+.time
+  color: $light
+  font-size: 30px
+
+.result_page
+  display: none
+  width: 100%
+  .result_page-info
+    margin: 0 auto
+    text-align: center
+    div
+      margin: 0 auto
+      width: 100%
+    h2
+      overflow: hidden
+    p
+      font-weight: bold
+

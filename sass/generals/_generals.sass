@@ -1,0 +1,127 @@
+body
+  font-family: $text
+  margin: 0
+  padding: 0
+  overflow-x: hidden
+  font-size: 14px
+a
+  text-decoration: none
+  color: inherit
+
+figure
+  margin: 0
+  display: block
+
+ul
+  padding-left: 0
+  list-style-type: none
+  
+h1,h2,h3,h4,h5,h6
+  font-family: $headers-font
+  text-transform: uppercase
+
+h2
+  text-align: center
+  font-size: 1.5em
+  background: $light-blue
+  color: $light
+  display: inline-block
+  padding: 0.5em 2em
+  position: relative
+
+h2:after
+  content: ''
+  +size(750px, 5px)
+  position: absolute
+  top: calc(50% - 5px)
+  left: 120%
+  background: $light-blue
+
+section
+  position: relative
+  z-index: 1  
+
+article
+  padding-right: 20px
+
+img
+  max-width: 100%
+  width: 100%
+
+.hidden
+  z-index: -1
+  visibility: hidden
+  opacity: 0
+  transition: 1s ease
+  padding: 0
+  margin: 0
+button
+  cursor: pointer
+  border: 0
+
+.exit 
+  position: absolute
+  top: 10px
+  right: 10px
+  cursor: pointer
+  .exit i 
+    font-size: 40px
+.error
+  color: #c80505
+  font-size: 0.7em
+  transition: 0.7s ease
+
+button
+  border: none
+  padding: 0.9em 2.1em
+  font-size: 1em  
+  text-transform: uppercase
+  cursor: pointer
+  background: $light-blue
+  color: $light
+  border-radius: 20px
+
+
+i.fa-angle-down, i.fa-angle-up 
+  display: none
+
+.choose-test_header .top-menu, .about-us_header .top-menu, .contacts_header .top-menu
+  position: relative
+  color: $dark-grey
+  font-size: 1.4em
+.choose-test_title, .about-us_title, .contacts_title
+  min-height: 250px
+  padding: 0
+  position: relative
+  overflow: hidden
+  +flex(center, center)
+  h2
+    font-weight: 500
+    font-size: 38px
+    &:after
+      content: none
+  img
+    position: absolute
+    top: 0
+    left: 0
+    width: 110%
+    max-width: fit-content
+
+
+/*footer*/
+footer
+  background: $dark-blue
+  color: $light-cadetblue
+  font-size: 14px
+  padding: 30px 0
+  label
+    display: none
+  ul
+    margin-right: 20px
+    li
+      padding: 5px 0
+      i
+        padding-right: 5px
+
+.top-menu .active
+  color: $light-blue

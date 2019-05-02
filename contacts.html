@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>System for testing knowledge</title>
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://img.icons8.com/dusk/64/000000/time-span.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    
+</head>
+
+<body>
+  <div class="preloader">
+    <div class="container-clock">
+      <div class="clock">
+        <div class="hour-arrow arrow"></div>
+        <div class="min-arrow arrow"></div>
+      </div>
+    </div>
+  </div>
+    
+<header class="contacts_header">
+    <div class="top-menu">
+        <div class="logo"><a href="index.html"><i class="material-icons">access_time</i></a></div>
+        <input id="stick" type="checkbox" hidden>
+        <label class="burg-container" for="stick">
+          <div class="stick"></div>
+        </label>    
+        <ul class="menu">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="about_us.html">О компании</a></li>
+          <li><a href="choose_test.html" class="active">Выбор теста</a>
+            <ul class="submenu">
+                <li><a href="#">Общие знания</a></li>
+                <li><a href="#">Компьютерные технологии</a>
+                    <ul class="submenu">
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#">CSS</a></li>
+                        <li><a href="#">JS</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Английский язык</a></li>
+                <li><a href="#">Математиские задачки</a></li>
+            </ul>
+          </li>
+          <li><a href="contacts.html">Контакты</a></li>
+          <li class="user_information guest"><a href="#"><i class="material-icons">person_add</i></a>
+            <ul class="submenu">
+              <li onclick="buttonClick('auth')"><a href="#">Войти<i class="material-icons">group</i></a></li>
+              <li onclick="buttonClick('reg')"><a href="#">Зарегистрироваться<i class="material-icons">group_add</i></a></li>
+            </ul>
+          </li>
+          <li class="user_information auth"><a href="#"><i class="material-icons">account_circle</i></a>
+            <ul class="submenu">
+              <li><a href="user_page.html">Моя страница<i class="material-icons">pageview</i></a></li>
+              <li><a href="#" class="logOut">Выйти<i class="material-icons">exit_to_app</i></a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="search">
+          <input type="text" id="field" placeholder="Поиск">
+          <input type="button" id="close" title="Отменить поиск" hidden>
+          <label for="close"><i class="material-icons">close</i></label>
+          <input type="submit" id="search" title="Начать поиск" value="" hidden>
+          <label for="search"><i class="material-icons">search</i></label>
+        </div>
+        <div class="search-result hidden"></div>
+      
+    </div>
+</header>
+
+<div class="validation-form_container hidden">
+      <div class="modal-win">
+        <input type="radio" id="tab_auth" name="tabs" class="tabs" checked hidden>
+        <label for="tab_auth" class="tab active">Авторизация</label>
+        <input type="radio" id="tab_reg" name="tabs" class="tabs" hidden>
+        <label for="tab_reg" class="tab">Регистрация</label>
+        <button class="tab tab_close"><i class="fas fa-times-circle"></i></button>
+        <form action="#" class="tab-form auth is-valid">
+            <input  type="email" 
+                    data-attr="email" 
+                    id="input_email" 
+                    placeholder="Введите Email" 
+                    pattern="^[\w]{2,}@[A-Za-z]{2,}.[A-Za-z]{2,}" 
+                    maxlength="40" 
+                    required>
+            <div class="error"></div>
+            <input  type="password" 
+                    data-attr="password" 
+                    id="input_pass" 
+                    placeholder="Введите пароль" 
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$" 
+                    maxlength="30" 
+                    minlength="8" 
+                    required>
+            <div class="error"></div>
+            <button href="#" type="submit">Войти</button>
+            <!--<ul>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fab fa-google"></i></a></li>
+          </ul>
+          <a href="#" class="forgot">Я забыл email или пароль</a>-->
+        </form>
+        <form action="#" class="tab-form reg is-valid">
+          <input type="text" 
+                 data-attr="name" 
+                 id="input_name" 
+                 placeholder="Введите имя" 
+                 pattern="[\w]{2,}" 
+                 maxlength="30" 
+                 required>
+          <div class="error"></div>
+          <input  type="email" 
+                  data-attr="email" 
+                  id="input_email_reg" 
+                  placeholder="Введите Email" 
+                  pattern="^[\w]{2,}@[A-Za-z]{2,}.[A-Za-z]{2,}" 
+                  required>
+          <div class="error"></div>
+          <input type="password" 
+                 data-attr="password" 
+                 id="input_pass_reg" 
+                 placeholder="Введите Пароль" 
+                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$" 
+                 maxlength="30" 
+                 minlength="8" 
+                 required>
+          <div class="error"></div>
+          <input type="password" 
+                 id="input_pass_confirm" 
+                 placeholder="Подтверждение пароля" 
+                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$" 
+                 maxlength="30" 
+                 minlength="8" 
+                 required>
+          <div class="error"></div>
+          <button href="#" type="submit">Регистрация</button>
+        </form>
+      </div>
+    </div>
+    
+<section class="contacts_feedback">
+    <div class="flex-container">
+        <div class="contacts_text">
+            <h2 class="">Наши контакты</h2>
+            <div class="accordeon">
+                <input type="checkbox" id="social" hidden>
+                <label for ="social"><h4>Social<i class="fas fa-angle-down"></i><i class="fas fa-angle-up"></i></h4></label>
+                <ul>
+                  <li><a href="https://www.instagram.com/dudnyk.elena/" target="_blank"><i class="fab fa-instagram"></i>Instagram</a></li>
+                  <li><a href="https://www.facebook.com/helen.red.10" target="_blank"><i class="fab fa-facebook"></i>Facebook</a></li>
+                  <li><a href="https://www.linkedin.com/in/elena-dudnyk-1b264a11b/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a></li>
+                </ul>
+            </div>
+            <div class="accordeon">
+                <input type="checkbox" id="contacts" hidden>
+                <label for="contacts"><h4>Contacts<i class="fas fa-angle-down"></i><i class="fas fa-angle-up"></i></h4></label>
+                <ul>
+                  <li> <i class="fas fa-mobile-alt"></i>+380632090340</li>
+                  <li><i class="fas fa-envelope"></i>elenkondrattseva@gmail.com</li>
+                  <li><i class="fas fa-map-marker-alt"></i>Kiev region, pgt. Kotsubinskoe</li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+    <form action="#" class="form-feedback">
+        <div class="flex-container">
+            <div>
+              <input id="name" type="text" placeholder="Имя" pattern="[\w]{2,}" maxlength="30" required>
+              <div class="error"></div>
+            </div>
+            <div>
+              <input type="tel" placeholder="Телефон" pattern="^\+380\d{9}$" maxlength="13" minlength="10" required>
+              <div class="error"></div>
+            </div>
+            <div>
+              <input type="email" placeholder="Email" pattern="^[\w]{2,}@[A-Za-z]{2,}.[A-Za-z]{2,}" maxlength="40" required>
+              <div class="error"></div>
+            </div> 
+            <div>
+              <input list="reason" placeholder="Причина связи" required>
+              <div class="error"></div>
+              <datalist id="reason">
+                <option value="collaboration">Сотрудничество</option>
+                <option value="errors">Ошибки на сайте</option>
+                <option value="other">Другое</option>
+               </datalist>  
+            </div>
+            <div class="textarea">
+              <textarea rows="5" cols="52" placeholder="Оставьте ваше сообщение" maxlength="500" minlength="10" required></textarea>
+              <div class="error"></div>
+            </div>
+            <div class="button_blue">
+              <button type="submit">Готово</button>
+           </div>
+        </div>
+    </form>          
+</section>
+
+
+<section class="map">
+    <div class="contacts_map">
+        <iframe src="https://maps.google.com/maps?width=480&amp;height=300&amp;hl=en&amp;q=Kiev%20Ponomareva%2026+(%D0%9D%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+        </iframe>
+        <!--<small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by 
+            <a href="https://embedgooglemaps.com/de/">https://embedgooglemaps.com/de/</a> & 
+            <a href="https://iamsterdamcard.it">iamsterdam card.it</a>
+        </small>-->
+    </div>
+</section>
+<footer>
+  <div class="flex-container">
+    <div class="footer-rights">
+      <p>Dudnyk developing, Inc.</p>
+      <p>@2019.All rights resereved.</p>
+    </div>
+    <div class="footer-contacts">
+          <input type="checkbox" id="contacts" hidden>
+          <label for="contacts"><h4>Contacts<i class="fas fa-angle-down"></i><i class="fas fa-angle-up"></i></h4></label>
+          <ul>
+            <li> <i class="fas fa-mobile-alt"></i>+380632090340</li>
+            <li><i class="fas fa-envelope"></i>elenkondrattseva@gmail.com</li>
+            <li><i class="fas fa-map-marker-alt"></i>Kiev region, pgt. Kotsubinskoe</li>
+          </ul>
+      </div>
+    <div class="footer-menu_n_social">
+      <div class="accordeon flex-container">
+          <input type="checkbox" id="social" hidden>
+          <label for ="social"><h4>Social<i class="fas fa-angle-down"></i><i class="fas fa-angle-up"></i></h4></label>
+          <ul>
+            <li><a href="index.html" target="_blank">Home</a></li>
+            <li><a href="about_us.html" target="_blank">About</a></li>
+            <li><a href="choose_test.html" target="_blank">Choose the test</a></li>
+          </ul>
+          <ul>
+            <li><a href="https://www.instagram.com/dudnyk.elena/" target="_blank"><i class="fab fa-instagram"></i>Instagram</a></li>
+            <li><a href="https://www.facebook.com/helen.red.10" target="_blank"><i class="fab fa-facebook"></i>Facebook</a></li>
+            <li><a href="https://www.linkedin.com/in/elena-dudnyk-1b264a11b/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a></li>
+          </ul>
+      </div>   
+    </div>
+  </div>
+</footer>
+<script src="scripts/pagination.js" type="module"></script>
+<script src="scripts/preloader.js"></script>
+<script src="scripts/parallax.js"></script>
+<script src="scripts/validation-form.js"></script>
+<script src="scripts/page_contacts.js"></script>
+<script src="scripts/search.js"></script>
+</body>
+</html>

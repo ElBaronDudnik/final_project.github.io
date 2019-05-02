@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Test</title>
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="https://img.icons8.com/dusk/64/000000/time-span.png">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700|Kelly+Slab|Russo+One|Ubuntu+Condensed&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    
+</head>
+
+<body>
+  <main>
+    <header class="test_page">
+      <div class="logo"><a href="index.html"><i class="material-icons">access_time</i></a></div>
+      <div class="time"></div>
+      <button class="button" id="finish_test">Завершить тест</button>
+    </header>
+    <div class="container">
+      <div class="result_page">
+      <div class="result_page-info">
+        <div class="div">
+          <h2>Результаты тестирования</h2>
+          <p>Колличество вопросов: <span id="quantity_quest"></span></p>
+          <p>Правильных ответов: <span id="right_answers"></span></p>
+          <p>Процент успешности: <span id="score"></span></p>
+        </div>
+      </div>
+    </div>
+      <aside id="references_container">
+      </aside>
+      <article id="question_container">
+        
+      </article>
+    </div>
+  </main>
+
+
+  <script src="scripts/test.js" defer></script>
+  <script src="scripts/result_page.js" type="module" defer></script>
+
+</body>
+</html>

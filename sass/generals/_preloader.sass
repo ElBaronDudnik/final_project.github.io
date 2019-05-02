@@ -1,0 +1,45 @@
+.preloader
+  position: fixed
+  +size(100%, 100vh)
+  z-index: 100
+  background: $light
+  .container-clock
+    +size(6em, 6em)
+    position: absolute
+    +flex(center, center)
+    +center(50%, 50%)
+    border-radius: 50% 
+    background: $dark-grey
+    .clock
+      position: relative  
+      +size(5em, 5em)
+      border: 4px solid $light
+      border-radius: 50%
+      &:after
+        content: ''
+        +size(1em, 1em)
+        position: absolute
+        border-radius: 50%
+        +center(50%, 50%)
+        background: $white
+      .arrow
+        +size(0.5em, 2em)
+        position: absolute
+        top: calc(50% - 1em)
+        left: 50%
+        transform-origin: 50% 100%
+        transform: translate(-50%, -50%) rotate(0deg)
+        border-radius: 0.6em
+        background: $white
+        animation: 1.5s spin infinite
+      .min-arrow
+        height: 1.5em
+        top: calc(50% - 0.8em)
+        animation: 1.5s spin 0.1s infinite
+
+@keyframes spin
+  from
+    transform: translate(-50%, -50%) rotate(0deg)
+  
+  to 
+    transform: translate(-50%, -50%) rotate(360deg)

@@ -1,0 +1,110 @@
+%input-elements
+	.flex-container
+		justify-content: flex-start
+		width: 100%
+		margin: auto
+		div
+			padding-right: 10px
+			width: 50%
+			position: relative
+			.error
+				+size(100%, 40px)
+				top: 80%
+		div.textarea, div.button_blue
+			width: 100%
+			padding-right: 10px
+		input, textarea
+			display: block
+			font-size: 16px
+			border: none
+			width: 100%
+			padding: 0.8em 0.7em
+			margin: 0 auto
+			margin-right: 20px
+			text-indent: 10px
+		textarea
+			width: 100%
+
+
+
+
+.contacts_feedback
+	+flex(space-around, flex-start)
+	background-color: $light
+	padding-top: 50px
+	.contacts_text
+		color: $dark-grey
+		li
+			padding: 5px
+			i
+				padding-right: 7px
+	form
+		padding-top: 100px
+		@extend %input-elements
+		.flex-container
+			width: 80%
+			margin: 0
+		
+.map
+	width: 100%
+	background: $light
+	+flex(center, center)
+	padding: 40px 0
+	.contacts_map
+		width: 80%
+		min-height: 300px
+		filter: grayscale(70%)
+		background: url(../img/map.jpg) no-repeat top center /contain
+		iframe
+			width: 100%
+			min-height: 300px
+.contact_us 
+	position: fixed
+	bottom: 20px
+	right: 20px
+	width: 100px
+	height: 100px
+	background: $light-blue
+	border-radius: 50%
+	color: $light
+	text-align: center
+	cursor: pointer
+	transition: 0.5s ease
+	z-index: 40 
+	&:hover i 
+		transform: scale(1.3) 
+	i 
+		transition: 0.5s ease
+		font-size: 50px
+		line-height: 100px 
+
+/*Feedback*/
+
+.feedback 
+	display: block
+	position: fixed
+	right: -50%
+	top: 0
+	padding: 0 40px
+	+size(50%, 100vh)
+	background: $light
+	z-index: 50
+	transition: 1s ease
+	&.open
+		right: 0
+		.flex-container
+			justify-content: flex-start
+			width: 100%
+			margin: auto
+			div
+				padding-right: 10px
+				width: 50%
+				position: relative
+				.error
+					+size(100%, 40px)
+					top: 80%
+			div.textarea, div.button_blue
+				width: 100%
+				padding-right: 10px
+	@extend %input-elements
+

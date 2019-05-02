@@ -1,0 +1,59 @@
+@media screen and (max-width: 916px) 
+  /*media for top nav menu*/
+  body
+    font-size: 12px
+  .top-menu .burg-container
+    display: block
+    z-index: 20
+  
+  header .top-menu .menu
+    flex-direction: column
+    align-items: center
+    right: 0
+    top: 0
+    position: absolute
+    height: 100vh
+    width: 30%
+    padding-top: 5.83em
+    background-color: rgba(0, 0, 0, 0.6)
+    margin-right: 0
+    li, li.user_information
+      width: 100%
+      color: $white
+      .submenu
+        left: -100%
+        top: 0
+        width: 100%
+        padding-top: 0
+        background: rgba(0, 0, 0, 0.6)
+        li
+          width: 100%
+          color: $white
+          .submenu
+            left: -100%
+  
+  
+  
+  header .top-menu .menu
+    display: none
+    opacity: 0
+    transition: all 1s ease
+  
+  #stick:checked ~ .menu
+    display: flex
+    opacity: 1
+    transition: all 1s ease
+  
+  .search
+    right: 100px
+    top: 13px
+
+@media screen and (max-width: 768px)
+  body
+    font-size: 11px
+@media screen and (max-width: 620px) 
+  body
+    font-size: 10px
+@media screen and (max-width: 480px)  
+  body
+    font-size: 8px

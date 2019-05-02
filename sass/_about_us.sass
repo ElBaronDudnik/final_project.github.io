@@ -1,0 +1,46 @@
+/*ABOUT US*/
+.about-us_header
+    max-height: 100px
+
+.advantages
+  background-color: $white
+  .ad-cell
+    color: $light-blue
+    text-align: center
+    max-width: calc(100% / 4)
+    padding: 20px
+    transition: 0.7s ease
+
+.about-us_grid
+  display: grid
+  overflow: hidden
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
+  .grid-item
+    margin: 0 auto
+    img
+      width: 300px
+      height: 300px
+      object-fit: cover
+.about-us_text
+  position: relative
+  margin: 40px 0
+  padding: 7px 0
+  background: $cadetblue
+  p
+    font-family: $text-additional
+    font-size: 19px
+    text-indent: 40px
+    margin: 40px auto
+    max-width: 50%
+    &:before, &:after
+      content: ''
+      position: absolute
+      width: 400px
+      height: 4px
+      background-color: $dark-blue
+    &:before
+      top: 0
+      right: 0
+    &:after
+      bottom: 0
+      left: 0

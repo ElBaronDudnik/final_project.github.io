@@ -1,0 +1,127 @@
+.filter_and_sort 
+	form
+		margin: 30px 0
+		select
+			padding: 10px 40px 10px 20px
+			border: none
+			-webkit-appearance: button
+			background: $light
+		.sub_select
+			margin-top: 10px
+			&.hidden
+				display: none
+		svg
+			width: 13px
+			color: #6a7b7b
+			margin-left: -30px
+			vertical-align: middle
+
+section.tests
+	padding: 0
+	background: none
+	figure
+		margin: 0
+		width: calc(100%/4)
+		img
+			height: 300px
+			filter: grayscale(90%)
+			transition: 0.7s ease
+		figcaption
+			height: 300px
+			padding: 1em
+			background-color: rgba( 255, 255, 255, 1)
+			transition: 0.7s ease
+			p, h3, h4
+				font-size: 1.1em
+			
+		&:hover img
+			filter: grayscale(10%)
+
+
+			
+/*Styling range*/
+input[type=range]
+	-webkit-appearance: none 
+	background: transparent
+	&::-webkit-slider-thumb 
+		-webkit-appearance: none
+	&:focus 
+		outline: none 
+	&::-ms-track 
+		width: 100%
+		cursor: pointer
+		background: transparent 
+	border-color: transparent
+	color: transparent
+/*Styling thumb*/
+input[type=range]::-webkit-slider-thumb 
+	-webkit-appearance: none
+	+size(25px, 25px)
+	border-radius: 50%
+	background: #ffffff
+	cursor: pointer
+	margin-top: -8px
+	box-shadow: 1px 1px 1px #222, 0px 0px 1px #444 
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb 
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d
+	border: 1px solid #000000
+	height: 36px
+	width: 16px
+	border-radius: 3px
+	background: #ffffff
+	cursor: pointer
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb 
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d
+	border: 1px solid #000000
+	height: 36px
+	width: 16px
+	border-radius: 3px
+	background: #ffffff
+	cursor: pointer
+/*Styling track*/
+input[type=range]::-webkit-slider-runnable-track 
+	width: 100%
+	height: 9px
+	cursor: pointer
+	box-shadow: 1px 1px 1px #555, 0px 0px 1px #555
+	background: linear-gradient(to right, #41d8dd 0%,#5583ee 100%)
+	border-radius: 1.3px
+input[type=range]:focus::-webkit-slider-runnable-track 
+	background: linear-gradient(to right, #41d8dd 0%,#5583ee 100%)
+input[type=range]::-moz-range-track 
+	width: 100%
+	height: 8.4px
+	cursor: pointer
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d
+	background: #3071a9
+	border-radius: 1.3px
+	border: 0.2px solid #010101
+input[type=range]::-ms-track 
+	width: 100%
+	height: 8.4px
+	cursor: pointer
+	background: transparent
+	border-color: transparent
+	border-width: 16px 0
+	color: transparent
+
+input[type=range]::-ms-fill-lower 
+	background: #2a6495
+	border: 0.2px solid #010101
+	border-radius: 2.6px
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d
+
+input[type=range]:focus::-ms-fill-lower 
+	background: #3071a9
+
+input[type=range]::-ms-fill-upper 
+	background: #3071a9
+	border: 0.2px solid #010101
+	border-radius: 2.6px
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d
+
+input[type=range]:focus::-ms-fill-upper 
+	background: #367ebd
+

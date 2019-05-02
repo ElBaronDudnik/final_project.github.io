@@ -1,0 +1,247 @@
+.header_container
+  +size(100%, 80vh)
+  overflow: hidden
+  position: relative
+  &.dark
+    +color($dark-grey, $cadetblue, $dark-blue)
+  &.light
+    +color($cadetblue, $dark-blue, $light-cadetblue)
+  .header_slider
+    flex-basis: 100%
+    +flex(center, center)
+    position: relative
+    overflow: hidden
+    +size(100%, 80vh)
+    .text-container
+      position: absolute
+      left: 200px
+      z-index: 20
+      color: inherit
+      font-family: $headers-font
+      h1
+        font-size: 3.5em
+      button.authorization
+        border: none
+        padding: 0.9em 2.1em
+        font-size: 1em  
+        text-transform: uppercase
+        cursor: pointer
+        background: $light-blue
+        color: $light
+        border-radius: 20px
+
+    .background-img
+      position: absolute
+      +size(100%, 80vh)
+      top: 0
+      left: 0
+      opacity: 1
+      transition: opacity 1s ease, transform 0.5s linear
+      transform: rotateY(0)    
+      img
+        transition: transform 1s ease
+        height: 80vh
+        object-fit: cover
+      &.hidden-img
+        opacity: 0
+        transform: rotateY(-90deg)
+
+    .slider_image
+      object-fit: cover
+      transform: scale(2)
+
+    
+
+.top-menu
+  position: absolute
+  top: 0
+  width: 100%
+  z-index: 50
+  +flex(space-between, flex-start)
+  font-size: 1.4em
+
+  /*LOGO*/
+  .logo
+    display: inline-block
+    i.material-icons
+      font-size: 40px
+      padding: 10px
+
+  /*BURG-MENU*/
+  .burg-container 
+    display: none
+    position: absolute
+    top: 20px
+    right: 30px
+    +size(35px, 23px)
+    .stick, .stick:before, .stick:after 
+      width: 35px
+      height: 3px
+      top: 50%
+      position: absolute
+      background: $cadetblue
+      transition: all 0.6s ease
+      transform-origin: 50% 50%
+    .stick:before 
+      content: ''
+      top: -10px
+      left: 0
+    .stick:after 
+      content: ''
+      top: 10px
+      left: 0
+
+  #stick:checked + .burg-container>.stick
+    transform: rotate(180deg)
+
+  #stick:checked + .burg-container>.stick:before 
+    transform-origin: 100% 50%
+    transform: rotate(-45deg) scaleX(0.7) translate(-12px, -18px)
+
+  #stick:checked + .burg-container>.stick:after 
+    transform-origin: 100% 50%
+    transform: rotate(45deg) scaleX(0.7) translate(-12px, 18px)
+
+  /*MENU*/
+  .menu
+    display: inline-flex
+    margin-top: 0
+    color: $dark-grey
+    margin-right: 250px
+    li.user_information
+      width: auto
+      &:hover:before, &:hover:after
+        content: none
+      a>i
+        font-size: 1.5em
+        vertical-align: bottom
+        padding-left: 7px
+      &.hidden  
+        display: none
+
+    li
+      display: block
+      width: 10em
+      position: relative
+      font-size: 1em
+      text-align: center
+      transition: 1s ease
+
+      &:last-child
+        border: none
+
+      a
+        font-size: 0.8em
+        text-transform: uppercase
+        width: 100%
+        padding: 10px 0
+        display: inline-block
+        cursor: pointer
+
+      ul.submenu
+        position: absolute
+        flex-direction: column
+        top: 100%
+        left: 0
+        width: auto
+        visibility: hidden
+        opacity: 0
+        color: $light
+        background: #6363b9e6
+        transform-origin: 0% 0%
+        transform: rotateX(-90deg)
+        transition: .3s linear  
+
+        li
+          height: 3.5em
+          +flex(center, center)
+          &:hover > a
+            color: $dark-blue
+
+        .submenu
+          left: 100%
+          top: 0
+          visibility: hidden
+          opacity: 0
+
+          li
+            padding: 10px 20px
+
+      &:hover > ul.submenu
+        display: block
+        transform: rotateX(0deg)
+        visibility: visible
+        opacity: 1
+
+      &:hover>a
+        color: $light-blue
+
+
+
+/*CONTROLS*/
+.controls-arrows
+  .prev, .next
+    display: inline-block
+    +size(8em, 80vh)
+    position: absolute
+    top: 0
+    z-index: 30
+    padding: 0 10px
+    opacity: 0
+    transition: 0.5s ease
+
+    &:hover
+      opacity: 1
+
+  .prev
+    left: 0
+    background: url(../img/arrow_left.png) no-repeat center left
+    cursor: pointer
+
+  .next
+    right: 0
+    background: url(../img/arrow_right.png) no-repeat center right
+    cursor: pointer
+
+ul.controls-buttons
+  position: absolute
+  bottom: 0
+  left: 50%
+  transform: translate(-50%)
+  padding-left: 0    
+  display: flex
+  z-index: 30
+  span.selected:before 
+    border-color: lighten($dark-blue, 50%)
+
+  .diamond 
+    +size(10px, 10px)
+    display: block
+    transform: rotate(-45deg)
+    transform-origin: 0 100%
+    margin: 20px 0 10px 30px
+    background: lighten($dark-blue, 50%)
+    cursor: pointer
+    &:before
+      content: ''
+      +size(15px, 15px)
+      display: block
+      border: 1px solid transparent
+      transform: rotate(0deg) translate(-19%, -19%)
+      transform-origin: 0 100%
+      position: absolute
+      transition: 1s ease
+    &:hover:before
+      border-color: lighten($dark-blue, 50%)
+  
+
+    
+
+@keyframes myopacity
+  0%
+    opacity: 1
+  50%
+    opacity: 0
+  100%
+    opacity: 1
+

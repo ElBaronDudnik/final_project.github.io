@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Cuprum:400,700|Montserrat:300,400,500,600,700|Open+Sans+Condensed:300,300i,700|Open+Sans:400,600,700&subset=cyrillic')
+@import "generals/vars"
+@import "generals/mixins"
+@import "generals/grid"
+@import "generals/generals"
+@import "generals/preloader"
+@import "main_page/header"
+@import "main_page/validation-form"
+@import "main_page/contacts"
+@import "test"
+@import "user-page"
+@import "about_us"
+@import "choose_test"
+
+// Global
+*, *:after, *:before
+  box-sizing: border-box
+
+/*BLOCKQUOTE*/
+.categories
+  +flex(center, center)
+  padding: 30px
+  ul 
+    +flex(center, center)
+    list-style-type: none
+    li
+      padding: 0 10px
+      font-family: $text-additional
+      font-size: 1.5em
+      text-transform: uppercase
+      white-space: nowrap
+      &:after
+        content: ''
+        width: 3px
+        height: 30px
+        background: $cadetblue
+        transform: rotate(10deg)
+        position: absolute
+        display: inline-block
+        margin: 0 10px
+      &:last-child:after
+        content: none
+
+/*TESTS*/
+.tests 
+  background:  lighten($dark-blue, 80%)
+  .flex-container
+    justify-content: flex-start
+  img
+    padding: 0
+    transition: transform 2s linear
+    height: 250px
+    object-fit: cover
+  figure
+    overflow: hidden
+    background-color: #fff  
+    transition: box-shadow 1s ease
+    margin: 10px
+    border: 3px solid transparent
+    position: relative
+    cursor: pointer
+    transition: opacity 1s ease
+    a
+      width: 100%
+      height: 100%
+      position: absolute
+      z-index: 20
+    figcaption
+      padding: 0.5em 2em
+      height: 300px
+      p
+        font-size: 0.9em
+        margin-top: 0
+      h3
+        font-size: 1em
+        border-bottom: 1.5px solid $cadetblue
+        height: 50px
+        margin-bottom: 0
+      h4
+        margin: 0
+        margin-top: 10px
+        font-size: 0.9em
+        color: $light-grey
+        font-weight: normal 
+    &:hover
+      border: 3px solid darkcyan
+    &:hover img
+      transform: scaleX(1.06)
+    &.hidden
+      transform: translateY(-1000%)
+      opacity: 0
+      margin: 0
+  .tests-pagination
+    margin: 20px auto
+    justify-content: center
+    width: 100%
+    span
+      margin-right: 5px
+      display: inline-block
+      padding: 3px 10px
+      border-radius: 2px
+      border: solid 1px #32373b
+      background: #3e4347
+      box-shadow: inset 0px 1px 1px rgba(255,255,255, .1), 0px 1px 3px rgba(0,0,0, .1)
+      color: #feffff
+      text-shadow: 0px 1px 0px rgba(0,0,0, .5)
+      cursor: pointer
+      transition: 0.5s ease
+      &:hover, &.active
+        background: #6d7881
+        border-color: #6d7881
+      &.hidden
+        display: none  
+/*SEARCH*/
+.search
+  position: fixed
+  display: inline-block
+  right: 40px
+  top: 5px
+  transition: 1s ease
+.search>input
+  border-radius: 17px
+  border: 2px solid #0D47A1
+  padding: 10px 20px
+#close+label, #search+label
+  display: block
+  color: #0D47A1
+  cursor: pointer
+  i
+    position: absolute
+    top: 50%
+    right: 10px
+    transform: translate(0,-50%)
+#search+label i
+  right: -30px
+
+.highlighted
+  background: #b4c3f8
+.search-result
+  position: fixed
+  z-index: 60
+  +center(50%, 50%)
+  +size(300px, 500px)
+  background: $light
+  transition: 1s ease
+  margin: 20px 10px
+  a
+    display: block
+    cursor: pointer
+    padding: 10px
+
+
+@import "generals/media"
