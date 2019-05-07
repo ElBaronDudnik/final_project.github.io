@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="shortcut icon" href="https://img.icons8.com/dusk/64/000000/time-span.png">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700|Kelly+Slab|Russo+One|Ubuntu+Condensed&amp;subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     
@@ -26,18 +27,17 @@
     </div>
   </div>
     
-    <header class="choose-test_header">
-  
+    <header class="search_header">
         <div class="top-menu">
             <div class="logo"><a href="index.html"><i class="material-icons">access_time</i></a></div>
             <input id="stick" type="checkbox" hidden>
             <label class="burg-container" for="stick">
               <div class="stick"></div>
-            </label>     
+            </label>    
             <ul class="menu">
               <li><a href="index.html">Главная</a></li>
-              <li><a href="about_us.html">О компании</a></li>
-              <li><a href="choose_test.html" class="active">Выбор теста</a>
+              <li><a href="about_us.html" class="active">О компании</a></li>
+              <li><a href="choose_test.html">Выбор теста</a>
                 <ul class="submenu">
                     <li><a href="#">Общие знания</a></li>
                     <li><a href="#">Компьютерные технологии</a>
@@ -65,19 +65,12 @@
                 </ul>
               </li>
             </ul>
-            <div class="search">
-              <input type="text" id="field" placeholder="Поиск">
-              <input type="button" id="close" title="Отменить поиск" hidden>
-              <label for="close"><i class="material-icons">close</i></label>
-              <input type="submit" id="search" title="Начать поиск" value="" hidden>
-              <label for="search"><i class="material-icons">search</i></label>
-            </div>
-          
+
         </div>
+        
     </header>
 
-
-  <div class="validation-form_container hidden">
+    <div class="validation-form_container hidden">
       <div class="modal-win">
         <input type="radio" id="tab_auth" name="tabs" class="tabs" checked hidden>
         <label for="tab_auth" class="tab active">Авторизация</label>
@@ -147,59 +140,36 @@
         </form>
       </div>
     </div>
-  
-
-    <section class="choose-test_title background-img slider_image">
+    
+    <section class="search_title background-img slider_image">
         <img src="img/back_pages.jpg" alt="Background" class="parallax">
-        <h2>Выбери тест</h2>    
+        <h2>Поиск</h2>    
     </section>
-    <section class="filter_and_sort">
-      <form action="#" class="flex-container">
-        <div class="filter_category">
-          <select id="categories">
-            <option value="Все категории"> Все категории</option>
-            <option value="Общие знания" > Общие знания</option>
-            <option value="Компьютерные технологии">Компьютерные технологии</option>
-            <option value="Английский язык">Английский язык</option>
-            <option value="Математические задачки">Математические задачки</option>
-          </select>
-          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" class="svg-inline--fa fa-angle-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg>
-          <div class="filter_and_sort sub_select hidden">
-            <select id="directions">
-              <option value="All directions">Все направления</option>
-              <option value="HTML">HTML</option>
-              <option value="CSS" >CSS</option>
-              <option value="JS">JS</option>
-            </select>
-            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" class="svg-inline--fa fa-angle-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg>
-        </div>
-        </div>
-        <div class="complexity" id="complexity">
-          <label for="choose_complexity">Легкие</label>
-          <input type="range" id="choose_complexity" min="0" max="2" value="0" step="1">
-          <label for="choose_complexity">Трудные</label>
-        </div>
-        <div class="sort">
-          <select id="sorting" >
-            <option value="NewO">по новизне, сначала старые</option>
-            <option value="NewN">по новизне, сначала новые</option>
-            <option value="NameA">по названию от А-Я</option>
-            <option value="NameZ">по названию от Я-А</option>
-          </select>
-          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" class="svg-inline--fa fa-angle-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg>
-        </div>  
-      </form>
-    </section>
-    <section class="tests">
-      <div class="flex-container">
-          
+
+
+    <section class="search-body">
+      <div class="search">
+        <input type="text" id="field" placeholder="Поиск">
+        <input type="button" id="close" title="Отменить поиск" hidden>
+        <label for="close"><i class="material-icons">close</i></label>
+        <input type="submit" id="search" title="Начать поиск" value="" hidden>
+        <label for="search"><i class="material-icons">search</i></label>
       </div>
-      <div class="tests-pagination flex-container">
+      <div class="inputed_text" id="inputed_text"></div>
+      <div class="search-result_section">
         
       </div>
+  
     </section>
 
-    <footer>
+
+
+
+
+
+
+
+     <footer>
       <div class="flex-container">
         <div class="footer-rights">
           <p>Dudnyk developing, Inc.</p>
@@ -220,8 +190,8 @@
               <label for ="social"><h4>Social<i class="fas fa-angle-down"></i><i class="fas fa-angle-up"></i></h4></label>
               <ul>
                 <li><a href="index.html" target="_blank">Home</a></li>
-                <li><a href="about_us.html" target="_blank">About</a></li>
-                <li><a href="choose_test.html" target="_blank">Contacts</a></li>
+                <li><a href="choose_test.html" target="_blank">Choose the test</a></li>
+                <li><a href="contacts.html" target="_blank">Contacts</a></li>
               </ul>
               <ul>
                 <li><a href="https://www.instagram.com/dudnyk.elena/" target="_blank"><i class="fab fa-instagram"></i>Instagram</a></li>
@@ -232,12 +202,11 @@
         </div>
       </div>
     </footer>
-    <script src="scripts/pagination.js" type="module" defer></script>
     <script src="scripts/preloader.js"></script>
     <script src="scripts/parallax.js"></script>
     <script src="scripts/validation-form.js"></script>
-    <script src="scripts/search.js"></script>
-    <script src="scripts/filter_sort.js" type="module" defer></script>
-    <script src="scripts/query_strings_module.js" type="module"></script>
+    <script src="scripts/search.js" type="module"></script>
+    <script src="scripts/query_stings_module.js" type="module" defer></script>
+    <script src="scripts/search_page.js" type="module" deref></script>
 </body>
 </html>

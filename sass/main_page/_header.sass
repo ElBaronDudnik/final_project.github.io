@@ -14,7 +14,7 @@
     +size(100%, 80vh)
     .text-container
       position: absolute
-      left: 200px
+      left: 10em
       z-index: 20
       color: inherit
       font-family: $headers-font
@@ -58,49 +58,48 @@
   width: 100%
   z-index: 50
   +flex(space-between, flex-start)
-  font-size: 1.4em
 
   /*LOGO*/
   .logo
     display: inline-block
-    i.material-icons
-      font-size: 40px
-      padding: 10px
+    padding: 10px
+    svg
+      width: 2.8em
 
   /*BURG-MENU*/
   .burg-container 
     display: none
     position: absolute
-    top: 20px
-    right: 30px
+    top: 10px
+    right: 10px
     +size(35px, 23px)
     .stick, .stick:before, .stick:after 
-      width: 35px
-      height: 3px
+      +size(29px, 2.5px)
       top: 50%
       position: absolute
-      background: $cadetblue
+      background: $dark-grey
       transition: all 0.6s ease
       transform-origin: 50% 50%
     .stick:before 
       content: ''
-      top: -10px
+      top: -8px
       left: 0
     .stick:after 
       content: ''
-      top: 10px
+      top: 8px
       left: 0
 
   #stick:checked + .burg-container>.stick
+    color: $light
     transform: rotate(180deg)
 
   #stick:checked + .burg-container>.stick:before 
     transform-origin: 100% 50%
-    transform: rotate(-45deg) scaleX(0.7) translate(-12px, -18px)
+    transform: rotate(-45deg) scaleX(0.7) translate(-12px, -16px)
 
   #stick:checked + .burg-container>.stick:after 
     transform-origin: 100% 50%
-    transform: rotate(45deg) scaleX(0.7) translate(-12px, 18px)
+    transform: rotate(45deg) scaleX(0.7) translate(-12px, 16px)
 
   /*MENU*/
   .menu
@@ -108,6 +107,7 @@
     margin-top: 0
     color: $dark-grey
     margin-right: 250px
+    font-size: 1.4em
     li.user_information
       width: auto
       &:hover:before, &:hover:after
@@ -121,7 +121,7 @@
 
     li
       display: block
-      width: 10em
+      width: 9.2em
       position: relative
       font-size: 1em
       text-align: center
@@ -137,6 +137,8 @@
         padding: 10px 0
         display: inline-block
         cursor: pointer
+        svg
+          margin-bottom: -5px
 
       ul.submenu
         position: absolute
@@ -182,7 +184,7 @@
 .controls-arrows
   .prev, .next
     display: inline-block
-    +size(8em, 80vh)
+    +size(5em, 80vh)
     position: absolute
     top: 0
     z-index: 30
@@ -195,12 +197,12 @@
 
   .prev
     left: 0
-    background: url(../img/arrow_left.png) no-repeat center left
+    background: url(../img/arrow_left.png) no-repeat center left /contain
     cursor: pointer
 
   .next
     right: 0
-    background: url(../img/arrow_right.png) no-repeat center right
+    background: url(../img/arrow_right.png) no-repeat center right /contain
     cursor: pointer
 
 ul.controls-buttons

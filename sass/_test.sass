@@ -100,6 +100,18 @@ article
     flex: 1
     margin: 20px 30px
     max-width: 70%
+    input[type="text"]
+      display: block
+      margin-bottom: 20px
+      border: 2px solid $light
+      padding: 10px 15px
+      &.hidden
+        margin: 0
+        padding: 0
+        border: 0
+    label
+      width: 90%
+      display: inline-block
   div.img_place
     width: 250px
     display: flex
@@ -108,9 +120,9 @@ article
     img
       max-width: 250px
       width: 250px
-  li.right
+  label.right, li.right
     background-color: $green-dark
-  li.wrong
+  label.wrong, li.wrong
     background-color: $red-dark
 
       

@@ -1,0 +1,70 @@
+/*SEARCH*/
+.search
+  position: absolute
+  display: inline-block
+  right: 40px
+  top: 5px
+  transition: 1s ease
+  &>input
+    border-radius: 17px
+    border: 2px solid #0D47A1
+    padding: 0.7em 1.7em
+    width: 7.5em 
+    font-size: 1em
+    transition: 1s ease
+    &:focus
+      width: 13em
+#close+label, #search+label
+  display: block
+  color: #0D47A1
+  cursor: pointer
+  svg
+    position: absolute
+    top: 50%
+    right: 10px
+    transform: translate(0,-50%)
+#search+label svg
+  right: -2em
+
+.highlighted
+  background: #b4c3f8
+
+
+.search_header
+    .menu
+      margin-right: 50px
+.search-body > .search
+  position: relative
+  right: 0
+  top: 20px
+  left: 45px
+  margin-bottom: 20px
+
+  input
+    text-indent: 20px
+  label
+    top: 20px
+    left: 45px
+  #search+label i
+    right: auto
+    left: 10px
+
+.search-result
+  display: flex
+  border-top: 2px solid $light
+  margin: 0 20px
+  padding: 25px
+  cursor: pointer
+  align-items: center
+
+  .search-image
+    width: 20%
+  .search-text
+    padding: 20px
+    h3
+      font-size: 20px
+    h4
+      color: $light
+.inputed_text
+  padding: 20px 40px
+  font-style: italic 

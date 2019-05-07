@@ -1,4 +1,5 @@
 import { data, tests_container, testsPagination, hideElements, showElements, createTestElements } from "./pagination.js";
+import { qs } from './query_strings_module.js'
 const complexity = document.getElementById('complexity');
 const categories = document.getElementById('categories');
 const directions = document.getElementById('directions');
@@ -53,9 +54,13 @@ function categoriesChange(e){
 	let val;
 	if (typeof(e) == "object") val = e.target.value;
 	else val = e;
+	console.log(val)
 	if (val == "Компьютерные технологии") sub_select.classList.remove('hidden')
-	else sub_select.classList.add('hidden')
-	sortingData = data.filter(_=>_.category == val);
+	else sub_select.classList.add('hidden');
+	console.log(val)
+	categories.value = val;
+	if (val == 'Все категории') sortingData = data;
+	else sortingData = data.filter(_=>_.category == val);
 	reSort(sortingData)
 }
 function directionChange(e){
@@ -81,35 +86,10 @@ function reSort(d){
 	createTestElements(d);
 }
 
-var qs = (function(a) {
-    if (a == "") return {};
-    var b = {};
-    for (var i = 0; i < a.length; ++i)
-    {
-        var p=a[i].split('=', 2);
-        if (p.length == 1)
-            b[p[0]] = "";
-        else
-            b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
-    }
-    return b;
-})(window.location.search.substr(1).split('&'));
 
 if (qs['category']){
-	switch (qs['category']){
-		case "general":
-			categoriesChange('Общие знания')
-			break;
-		case "it":
-			categoriesChange('Компьютерные технологии')
-			break;
-		case "english":
-			categoriesChange('Английский язык')
-			break;
-		case "math":
-			categoriesChange('Математические задачки')
-			break;
-	}
+	console.log(qs['category'])
+	categoriesChange(qs['category'])
 	if(qs['direction']){
 		directionChange(qs['direction'])
 	}

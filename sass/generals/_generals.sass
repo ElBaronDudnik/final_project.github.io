@@ -47,6 +47,7 @@ article
 img
   max-width: 100%
   width: 100%
+  height: auto
 
 .hidden
   z-index: -1
@@ -85,11 +86,11 @@ button
 i.fa-angle-down, i.fa-angle-up 
   display: none
 
-.choose-test_header .top-menu, .about-us_header .top-menu, .contacts_header .top-menu
+.choose-test_header .top-menu, .about-us_header .top-menu, .contacts_header .top-menu, .search_header .top-menu
   position: relative
   color: $dark-grey
   font-size: 1.4em
-.choose-test_title, .about-us_title, .contacts_title
+.choose-test_title, .about-us_title, .contacts_title, .search_title
   min-height: 250px
   padding: 0
   position: relative
@@ -106,22 +107,41 @@ i.fa-angle-down, i.fa-angle-up
     left: 0
     width: 110%
     max-width: fit-content
+input:disabled
+  background: #fafafa
+
+a:focus 
+ outline: none
+button:active, button:focus 
+  outline: none
+button::-moz-focus-inner 
+  border: 0
+
+
 
 
 /*footer*/
 footer
   background: $dark-blue
   color: $light-cadetblue
-  font-size: 14px
-  padding: 30px 0
+  font-size: 1em
+  padding: 2em 5em
   label
     display: none
   ul
     margin-right: 20px
     li
       padding: 5px 0
-      i
+      svg
         padding-right: 5px
+        width: 1.2em
 
 .top-menu .active
   color: $light-blue
+
+svg.svg-little
+  width: 1.4em
+svg.svg-normal
+  width: 2em
+svg.svg-giant
+  width: 2.8em
