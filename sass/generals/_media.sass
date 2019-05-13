@@ -1,5 +1,5 @@
 @media screen and (max-width: 916px) 
-  /*media for top nav menu*/
+  /*Main page*/
   body
     font-size: 13px
   .top-menu .burg-container
@@ -15,7 +15,7 @@
     height: 100vh
     width: 30%
     padding-top: 5.83em
-    background-color: #d4d4eec9
+    background-color: $ashen-pink
     margin-right: 0
     li, li.user_information
       width: 100%
@@ -25,7 +25,7 @@
         top: 0
         width: 100%
         padding-top: 0
-        background-color: #d4d4eec9
+        background-color: $ashen-pink
         li
           width: 100%
           color: $dark-grey
@@ -45,16 +45,30 @@
     opacity: 1
     transition: all 1s ease
   
-  .search
-    right: 75px
+  .search-block
+    right: 8em
     top: 10px
 
   section.tests figure
     width: calc(100%/3)
 
+  /*Contacts page*/
+  .contacts_feedback
+    form
+      width: 100%
+
 @media screen and (max-width: 768px)
   body
     font-size: 12px
+  .search-result
+    padding: 0
+  #question_container
+    .quet
+      width: auto
+      div.img_place
+        width: 40%
+        img
+          width: 100%
 @media screen and (max-width: 640px) 
   body
     font-size: 11px
@@ -74,7 +88,7 @@
     transform: rotate(45deg) scaleX(0.7) translate(-8px, 13px)
 
   header .top-menu .menu
-    background-color: #d4d4eee8
+    background-color: $ashen-pink
     width: 50%
 
   ul.controls-buttons .diamond
@@ -87,27 +101,194 @@
     ul
       display: none
 
+  section.feedback.open
+    width: 100%
+
   footer .footer-rights
     width: 100%
-    order: 3
+    order: 3  
     text-align: center
+
+  /*About page*/
+  .advantages .ad-cell
+    max-width: calc(100% / 2)
+    +flex(flex-start, center)
+    h3
+      padding-left: 10px
+  .about-us_text
+    p
+      margin: 20px
+      max-width: 100%
+  .filter_and_sort form
+    div
+      margin-top: 10px
+    div.complexity
+      order: 3
+      margin-top: 20px
+
+  main:before
+    content: none
+    #references_container
+      margin: 0
+    #question_container
+      padding: 0
+
+  /*Tests page*/
+
+  header.test_page
+    padding: 0 20px
+    button#finish_test
+      padding: 0
+      width: 33%
+      font-size: 15px
+    .time
+      padding: 0 20px
+  #question_container
+    padding-right: 0
+    form.quet
+      width: auto
+      box-shadow: 2px 2px 10px 1px #515051
+      &:first-child
+        margin-top: 0
+      div.img_place
+        order: 1
+        justify-content: center
+        margin: 0 auto
+        img
+          width: 150px
+      div.question_place
+        order: 2
+        ol.answers
+          padding-left: 10px
+        label
+          width: 80%
+  #references_container
+    margin-left: 20px
+    flex: auto
+    width: 100%
+    li
+      display: inline-block
+      width: 15%
+      a
+        height: 30px
+        margin: 5px
+        box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(40, 41, 40, 0.5)
 @media screen and (max-width: 520px) 
   section.tests
     figure
       width: 100%
       display: flex
       img
-        +size(20%, 10em)
+        +size(20%, 12em)
       figcaption
-        +size(80%, 10em)
+        +size(80%, auto)
         padding: 0 1em
         h3, h4
           height: auto
           margin: 5px 0
 
   .header_container .header_slider .text-container
-    left: 20px
+    left: 5em
 
+  section.feedback
+    .flex-container div
+      width: 100%
+
+  footer 
+    padding: 0
+    .footer-contacts, .footer-menu_n_social
+      width: 100%
+      border-bottom: 1px solid $light
+      padding: 10px 40px
+    label
+      display: block
+      width: 100%
+      cursor: pointer
+      h4
+        margin: 0
+        padding: 10px 0
+        text-align: center
+    .footer-menu_n_social ul:first-child
+      display: none
+    ul
+      height: 0
+      overflow: hidden
+      margin: 0
+      transition: height 1s ease
+  .footer-menu_n_social .accordeon
+    flex-direction: column
+    align-items: flex-start
+  #social:checked ~ ul.social-icons, #contacts:checked ~ ul
+    height: 80px
+  #social:checked ~ label svg.fa-angle-up, #contacts:checked ~ label svg.fa-angle-up
+    display: inline-block
+  #social:checked ~ label svg.fa-angle-down, #contacts:checked ~ label svg.fa-angle-down
+    display: none
+  svg.fa-angle-down
+    display: inline-block
+      
+  /*Contacts page*/
+  .contacts_feedback
+    flex-wrap: wrap
+    padding-top: 20px
+    .contacts_text
+      width: 80%
+      +flex(center, center)
+      flex-wrap: wrap
+      h2
+        width: 60%
+        &:after
+          content: none
+      .accordeon
+        width: 50%
+    form
+      padding-top: 20px
+      .flex-container
+        margin: 0 auto
+  .user-page
+    width: 100%
+
+  .search-result
+    .search-image
+      width: 40%
+      img
+        height: 100px
+        object-fit: cover
+
+  
 @media screen and (max-width: 480px)  
   body
-    font-size: 10px
+    font-size: 12px
+  .contacts_feedback 
+    .contacts_text 
+      .accordeon, h2
+        width: 80%
+    
+    form
+      .flex-container
+        div
+          width: 100%
+  /*About page*/
+  .advantages .ad-cell
+    max-width: 100%
+    padding: 0
+  .user-page
+    width: 250px
+    .flex-container
+      flex-direction: column
+      flex-wrap: nowrap
+      article.user_info, article.test_info
+        width: 100%
+
+@media screen and (max-width: 420px)
+  .header_container .header_slider .text-container
+    left: 3em
+    h1
+      font-size: 30px
+
+
+  .controls-arrows .prev, .controls-arrows .next
+    width: 3.5em  
+    padding: 0
+
+  

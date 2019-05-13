@@ -5,14 +5,11 @@
 
     <meta charset="utf-8">
 
-    <title>System for testing knowledge</title>
+    <title>User page</title>
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="shortcut icon" href="https://img.icons8.com/dusk/64/000000/time-span.png">
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700|Kelly+Slab|Russo+One|Ubuntu+Condensed&amp;subset=cyrillic" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="img/icons/title.png">
     <link rel="stylesheet" href="css/main.css">
     
 </head>
@@ -30,67 +27,89 @@
     <div class="user-container">
     
         <header class="user-page_header">
-        
-            <div class="top-menu">
-                <div class="logo"><a href="index.html"><i class="material-icons">access_time</i></a></div>
-                <div class="burg-menu">
-                    <input id="stick" type="checkbox" hidden>
-                    <label class="burg-container" for="stick">
-                        <div class="stick"></div>
-                    </label> 
-                </div>   
-                <ul class="menu">
-                  <li><a href="index.html">Главная</a></li>
-                  <li><a href="about_us.html">О компании</a></li>
-                  <li><a href="choose_test.html">Выбор теста</a>
-                    <ul class="submenu">
-                        <li><a href="#">Общие знания</a></li>
-                        <li><a href="#">Компьютерные технологии</a>
-                            <ul class="submenu">
-                                <li><a href="#">HTML</a></li>
-                                <li><a href="#">CSS</a></li>
-                                <li><a href="#">JS</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Английский язык</a></li>
-                        <li><a href="#">Математиские задачки</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="contacts.html">Контакты</a></li>
-                </ul>
-                <div class="search">
-                  <input type="text" id="field" placeholder="Поиск">
-                  <input type="button" id="close" title="Отменить поиск" hidden>
-                  <label for="close"><i class="material-icons">close</i></label>
-                  <input type="submit" id="search" title="Начать поиск" value="" hidden>
-                  <label for="search"><i class="material-icons">search</i></label>
-                </div>
-                <div class="search-result hidden"></div>
+          <div class="top-menu">
+            <div class="logo"><a href="index.html">
+              <svg class="svg-giant" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#3e3f40" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><path d="M0 0h24v24H0z" fill="none"/><path fill="#3e3f40" d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            </a></div>
+            <input id="stick" type="checkbox" hidden>
+            <label class="burg-container" for="stick">
+              <div class="stick"></div>
+            </label>    
+            <nav>
+              <ul class="menu">
+                <li><a href="index.html" class="active">Главная</a></li>
+                <li><a href="about_us.html">О компании</a></li>
+                <li><a href="choose_test.html">Выбор теста</a>
+                  <ul class="submenu">
+                      <li><a href="choose_test.html?category=Общие знания">Общие знания</a></li>
+                      <li><a href="choose_test.html?category=Компьютерные технологии">Компьютерные технологии</a>
+                          <ul class="submenu">
+                              <li><a href="choose_test.html?category=Компьютерные технологии&direction=html"><abbr title="HyperText Markup Language">HTML</abbr></a></li>
+                              <li><a href="choose_test.html?category=Компьютерные технологии&direction=css"><abbr title="Cascading Style Sheets">CSS</abbr></a></li>
+                              <li><a href="choose_test.html?category=Компьютерные технологии&direction=js"><abbr title="JavaScript">JS</abbr></a></li>
+                          </ul>
+                      </li>
+                      <li><a href="choose_test.html?category=Английский язык">Английский язык</a></li>
+                      <li><a href="choose_test.html?category=Математические задачки">Математиские задачки</a></li>
+                  </ul>
+                </li>
+                <li><a href="contacts.html">Контакты</a></li>
+                
+              </ul>
+            </nav>
+            <div class="search-block">
+              <input type="text" id="field" class="field" placeholder="Поиск">
+              <input type="button" id="close" class="close-button" title="Отменить поиск" hidden>
+              <label for="close">
+                <svg class="svg-little" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#0d47a1" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+              </label>
+              <input type="submit" id="search" class="search" title="Начать поиск" value="" hidden>
+              <label for="search">
+                <svg class="svg-normal" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#0d47a1" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+              </label>
             </div>
+          </div>
         </header>
 
+        <main>
 
-        <section class="user-page">
-            <div class="flex-container">
-                <div class="user_info">
-                    <h4 class="user_name">Марк Ассирийский</h4>
-                    <div class="user_reg-data">Дата регистрации: 20.10.2010</div>
-                    <div class="user_email">mark@gmail.com</div>
-                    <button class="logOut">Log out</button>
-                    <button class="logOut">Создать тест</button>
-                </div>
-                <div class="test_info">
-                    <div>
-                        <h4>Информация о пройденных тестах:</h4>
-                        <div class="tag">Пройдено тестов <span id="passed_tests">10</span></div>
-                        <div class="tag">Процент успешности <span id="success_rate">100%</span></div>
-                    </div>
-                </div>
-                <div class="adminVsUser">user</div>
-            </div>
-        </section>
+          <section class="user-page vertical">
+              <div class="flex-container">
+                  <article class="user_info">
+                      <div>
+                          <h4 class="user_name">Марк Ассирийский</h4>
+                          <div class="user_reg-data">Дата регистрации: 20.10.2010</div>
+                          <div class="user_email">mark@gmail.com</div>
+                          <button class="logOut">Log out</button>
+                          <button class="statistic-button">Статистика</button>
+                      </div>
+                  </article>
+                  <article class="test_info">
+                      <div>
+                          <h4>Информация о пройденных тестах:</h4>
+                          <div class="tag">Пройдено тестов <span id="passed_tests">10</span></div>
+                          <div class="tag">Процент успешности <span id="success_rate">100%</span></div>
+                      </div>
+                  </article>
+                  <article class="statistic hidden">
+                      <div>
+                          <h4>Расширенная статистика тестирований:</h4>
+                          
+                      </div>
+                  </article>
+                  <div class="adminVsUser">user</div>
+              </div>
+              <div class="arrow-top-down hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" id="up" height="50" viewBox="0 0 24 24"><path fill="lightgrey" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" id="down" height="50" viewBox="0 0 24 24"><path fill="lightgrey" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/><path fill="none" d="M0 0h24v24H0V0z"/></svg>
+              </div>
+          </section>
+          
+        </main>
     </div>
     <script src="scripts/preloader.js"></script>
     <script src="scripts/user_page.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/statistic.js" type="module"></script>
 </body>
 </html>

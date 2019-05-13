@@ -44,6 +44,17 @@ section
 article
   padding-right: 20px
 
+.wrapper
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+
+header, footer
+  flex: 0 0 auto
+
+main
+  flex: 1 0 auto
+
 img
   max-width: 100%
   width: 100%
@@ -83,32 +94,40 @@ button
   border-radius: 20px
 
 
-i.fa-angle-down, i.fa-angle-up 
+svg.fa-angle-down, svg.fa-angle-up 
   display: none
+  width: 8px
+  margin-left: 7px
+  margin-bottom: -3px
 
 .choose-test_header .top-menu, .about-us_header .top-menu, .contacts_header .top-menu, .search_header .top-menu
   position: relative
   color: $dark-grey
-  font-size: 1.4em
 .choose-test_title, .about-us_title, .contacts_title, .search_title
-  min-height: 250px
+  min-height: 19em
   padding: 0
+  height: 19em
   position: relative
   overflow: hidden
   +flex(center, center)
   h2
     font-weight: 500
-    font-size: 38px
+    font-size: 2.7em
     &:after
       content: none
   img
     position: absolute
     top: 0
     left: 0
-    width: 110%
-    max-width: fit-content
-input:disabled
-  background: #fafafa
+    +size(110%, 250px)
+
+
+input
+  font-size: 1.2em 
+  outline: none
+  &:disabled
+    background: #fafafa
+  
 
 a:focus 
  outline: none
@@ -138,10 +157,14 @@ footer
 
 .top-menu .active
   color: $light-blue
-
+svg.svg-tiny
+  width: 1.1em
 svg.svg-little
   width: 1.4em
 svg.svg-normal
   width: 2em
 svg.svg-giant
   width: 2.8em
+
+img.parallax
+  transform: scale(2)
